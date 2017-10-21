@@ -154,6 +154,42 @@ El algoritmo sería:
 Esta forma es eficiente, no requiere transformaciones ni multiplicaciones ni divisiones, que son operaciones costosas.
 No pierde precisión, es fácil de entender y probar.
 
+# Simulaciones
+
+Para detectar el impacto de la medida, escribí el programa simluaciones, que contiene dos escenarios.
+En el escenario 1 sumo todos los números entre 0 y UINT_MAX (4.294.967.295) y calculé las diferencias aplicando tres tipos de redondeo.
+Los resultados son estos:
+
+    simulacion 1
+    (0) suma sin redondeo         : 9223372030412324865
+    (1) suma con redondeo chileno : 9223372028264841210
+    (2) suma con redondeo clasico : 9223372032559808500
+    (3) suma sin redondeo banquero: 9223372030412324850
+    diferencia (1) - (0)          =         -2147483655
+    diferencia (2) - (0)          =          2147483635
+    diferencia (3) - (0)          =                 -15
+
+
+Un valor negativo en la diferencia significa una diferencia a favor del consumidor.
+Notar que el algoritmo del banquero reduce mucho el error acumulado.
+
+El escenario 2 hace una simulación generando 1.000.000.000 (mil millones) de números aleatorios.
+
+El resultado es este:
+ 
+    simulacion 2
+    iteraciones: 1000000000
+    (0) suma sin redondeo         : 1073749761791234172
+    (1) suma con redondeo chileno : 1073749761291172250
+    (2) suma con redondeo clasico : 1073749762291234490
+    (3) suma sin redondeo banquero: 1073749761791157850
+    diferencia (1) - (0)          =          -500061922
+    diferencia (2) - (0)          =           500000318
+    diferencia (3) - (0)          =              -76322
+
+
+Como verán, el usar el redondeo propuesto por el banco central tiende a beneficiar al consumidor en promedio y en los grande números, por supuesto.
+
 
 ## Referencias
 
