@@ -194,3 +194,6 @@ Como verán, el usar el redondeo propuesto por el banco central tiende a benefic
 ## Referencias
 
 Sobre redondeo, este gran artículo en Wikipedia https://en.wikipedia.org/wiki/Rounding
+
+Sitio del Banco Central donde se explica el redondeo: https://www.redondea.cl/
+
