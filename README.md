@@ -79,6 +79,9 @@ nuestro error acumulado va hacia abajo.
 Hay otras formas de redondear que intentan compensar este error, por ejemplo, el algoritmo del banquero que aproxima
 hacia arriba si la parte entera es par, o hacia abajo si la parte entera es impar.
 
+Hay que notar que el algoritmo del banquero es la forma de redondear estándar definida por la IEEE en la especificación de punto flotante IEEE-754, así que es esta función la más usada 
+en muchas bibliotecas de código en diversos lenguajes.
+
 En este caso 10.5, quedara como 11, pero 9.5 quedaría como 9.0.
 
 Otra posibilidad es hacer lo contrarior, si es impar aproximar para arriba y si es par hacia abajo.
@@ -129,7 +132,7 @@ En Java existe la posibilidad de implementar HALF_DOWN, así que el redondeo ir�
 Esto es horrible, por muchas razones, pero funciona. 
 Sin embargo hay formas mejores de hacer esto.
 
-# Mejores formas de redondear a la decena
+## Mejores formas de redondear a la decena
 
 Lo que queremos es redondear hacia abajo si termina en 5, 4, 3, 2 ó 1. 
 Entonces es bastante simple si usamos números enteros (los pesos chilenos no aceptan decimales, así que podemos
@@ -152,5 +155,6 @@ Esta forma es eficiente, no requiere transformaciones ni multiplicaciones ni div
 No pierde precisión, es fácil de entender y probar.
 
 
+## Referencias
 
-En 1984 se emitió una norma que eliminó esta denominación de circulación.
+Sobre redondeo, este gran artículo en Wikipedia https://en.wikipedia.org/wiki/Rounding
